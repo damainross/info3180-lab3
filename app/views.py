@@ -58,7 +58,7 @@ def page_not_found(error):
 @app.route('/contact',methods=['GET', 'POST'])
 def contact():
   form = ContactForm()
-  if request.method=='POST':
+  if request.method=='POST' and form.validate_on_submit():
       msg = Message("Email", sender=("The Don","from@example.com"),recipients=["to@example.com"])
       msg.body = form.email.data
       mail.send(msg)
