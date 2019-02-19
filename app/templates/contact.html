@@ -5,17 +5,21 @@
 <br>
 <form method='POST',action='/contact'>
  {{form.csrf_token}}
- {{form.name.label}}
+ <strong>{{form.name.label}}</strong> 
+  <p>Please enter your full name</p> 
  <br>
  {{form.name}}
  <br>
- {{form.email.label}}
+ <strong>{{form.email.label}}</strong>
+ <p>Please enter your e-mail address</p>
  <br>
   {{form.email}}
   <br>
-  {{form.message.label}}
+  <strong>{{form.message.label}}</strong> 
+  <p>Please enter the subject of your message</p>
   <br>
-  {{form.message}}
+  {{form.message(size=100)}}
+  <br>
   <br>
   <button type='submit'>send</button>
 </form>

@@ -59,12 +59,12 @@ def page_not_found(error):
 def contact():
   form = ContactForm()
   if request.method=='POST':
-      #msg = Message("Email", sender=("The Don","from@example.com"),recipients=["to@example.com"])
-      #msg.body = form.email.data
-      #mail.send(msg)
-      flash('sent')
-       
-      return  redirect('home')
+      msg = Message("Email", sender=("The Don","from@example.com"),recipients=["to@example.com"])
+      msg.body = form.email.data
+      mail.send(msg)
+      flash('Message was successfully sent')
+      return render_template('home.html') 
+      #return  redirect('home')
   return render_template('contact.html',form=form)
 
 if __name__ == '__main__':
