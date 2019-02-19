@@ -58,15 +58,13 @@ def page_not_found(error):
 @app.route('/contact',methods=['GET', 'POST'])
 def contact():
   form = ContactForm()
-  if form.validate_on_submit() and request.method=='POST':
-      msg = Message("Email", sender=("The Don",
-      "from@example.com"),recipients=["to@example.com"])
-      msg.body = ContactForm.email.data
-      mail.send(msg)
-      return msg
+  if request.method=='POST':
+      #msg = Message("Email", sender=("The Don","from@example.com"),recipients=["to@example.com"])
+      #msg.body = form.email.data
+      #mail.send(msg)
       flash('sent')
-      #return redirect(url_for('base.html'))
-      return redirect(url_for('home'))
+       
+      return  redirect('home')
   return render_template('contact.html',form=form)
 
 if __name__ == '__main__':
